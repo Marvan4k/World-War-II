@@ -1,6 +1,6 @@
 export default function Stats() {
   return (
-    <div className="flex justify-around items-center min-h-[400px]">
+    <div className="flex justify-around items-center min-h-[400px] max-w-[1280px] m-auto">
         <div className="flex flex-col items-center">
             <p className="text-[#ef233c] font-[sans-serif] text-8xl font-bold italic">80</p>
             <p className="text-black text-3xl">лет памяти</p>

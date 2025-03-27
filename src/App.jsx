@@ -16,8 +16,12 @@ export default function App() {
         <About />
       </div>
       <Stats />
-      <Builder />
-      <FaqSection />
+      <div className='flex justify-center items-center bg-[#00161D] min-h-[400px]"'>
+        <Builder />
+      </div>
+      <div className='flex justify-center items-center bg-[#00161D] min-h-[400px]"'>
+        <FaqSection />
+      </div>
     </div>
   );
 }

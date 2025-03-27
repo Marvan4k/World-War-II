@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <header className="bg-[#00161D] text-white fixed w-full">
-      <nav className="mx-auto px-4 py-4 flex items-center justify-between">
+      <nav className="max-w-[1280px] mx-auto px-4 py-4 flex items-center justify-between">
         <a href="#" className="hover:text-[#25A18E] py-2 transition-colors font-medium text-2xl">История</a>
         <div className="flex space-x-8 font-medium">
           <a href="#" className="hover:text-[#25A18E] py-2 transition-colors text-2xl">Лента времени</a>
