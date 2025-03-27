@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+
+@layer base {
+    input {
+        border: 1px solid black !important;
+    }
+}

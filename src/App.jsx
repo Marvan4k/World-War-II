@@ -1,8 +1,12 @@
+import React from 'react';
+import Test from './components/Test.jsx';
+import { Routes, Route } from 'react-router-dom';
+
 function App() {
   return (
-    <div className="App">
-      <p className="text-8xl text-red-700 text-center">Привет, Виталя! Мы тут сайт делаем!</p>
-    </div>
+    <Routes>
+        <Route exact path="/" element={<Test />} />
+    </Routes>
   );
 }
 
