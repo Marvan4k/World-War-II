@@ -2,6 +2,7 @@ import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import About from './components/About';
 import Stats from './components/Stats';
+import Builder from './components/Builder'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <About />
       </div>
       <Stats />
+      <Builder />
     </div>
   );
 }
