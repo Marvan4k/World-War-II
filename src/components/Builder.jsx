@@ -24,47 +24,47 @@ const ContentSection = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gray-50 rounded-lg shadow-md">
-      <div className="flex flex-wrap gap-4 mb-6">
-        <button onClick={() => setActiveTab('constructor')} className={`px-4 py-2 rounded-lg transition-colors ${ activeTab === 'constructor' ? 'bg-blue-600 text-white': 'bg-white text-gray-700 hover:bg-blue-100'}`} >
+    <div className="flex items-center justify-center w-full mx-auto p-6 bg-[#00161D] shadow-md min-h-[300px]">
+      <div className="flex flex-col flex-wrap gap-4 mb-6 min-w-[30%]">
+        <button onClick={() => setActiveTab('constructor')} className={`text-2xl px-4 py-2 rounded-lg transition-colors ${ activeTab === 'constructor' ? 'text-[#25A18E] hover:text-[#1d8273]': 'text-white hover:text-[#1d8273]'}`} >
           Конструктор блоков
         </button>
-        <button onClick={() => setActiveTab('maps')} className={`px-4 py-2 rounded-lg transition-colors ${activeTab === 'maps' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 hover:bg-blue-100'}`}>
+        <button onClick={() => setActiveTab('maps')} className={`text-2xl px-4 py-2 rounded-lg transition-colors ${activeTab === 'maps' ? 'text-[#25A18E] hover:text-[#1d8273]': 'text-white hover:text-[#1d8273]'}`}>
           Интерактивные карты
         </button>
-        <button onClick={() => setActiveTab('facts')} className={`px-4 py-2 rounded-lg transition-colors ${activeTab === 'facts' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 hover:bg-blue-100' }`}>
+        <button onClick={() => setActiveTab('facts')} className={`text-2xl px-4 py-2 rounded-lg transition-colors ${activeTab === 'facts' ? 'text-[#25A18E] hover:text-[#1d8273]': 'text-white hover:text-[#1d8273]'}`}>
           Исторические факты
         </button>
       </div>
 
       {activeTab === 'constructor' ? (
         <div className="animate-fadeIn space-y-6">
-          <div className="bg-white p-6 rounded-lg shadow-sm space-y-6">
-            <button className="w-full py-4 px-8 bg-blue-600 text-white text-lg rounded-lg hover:bg-blue-700 transition-colors shadow-md">
+          <div className="p-6 rounded-lg shadow-sm space-y-6">
+            <button className="w-full py-4 px-8 bg-[#25A18E] text-white text-lg rounded-lg hover:bg-[#1d8273] transition-colors shadow-md">
               Создать блок
             </button>
-            <p className="text-gray-700 text-lg">
+            <p className="text-white text-lg">
               {content.constructor.elements[0].content}
             </p>
             <>
-              <p className="text-gray-600 mb-4">
+              <p className="text-white mb-4">
                 
               </p>
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              <button className="px-6 py-2 bg-[#25A18E] text-white rounded-lg hover:bg-[#1d8273] transition-colors">
                 Подробнее
               </button>
             </>
           </div>
         </div>
       ) : (
-        <div className="space-y-4 animate-fadeIn">
-          <h2 className="text-2xl font-bold text-gray-800">
+        <div className="space-y-4 animate-fadeIn w-full">
+          <h2 className="text-2xl font-bold text-white">
             {content[activeTab].title}
           </h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-white leading-relaxed">
             {content[activeTab].text}
           </p>
-          <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+          <button className="mt-4 px-6 py-2 bg-[#25A18E] text-white rounded-lg hover:bg-[#1d8273] transition-colors">
             Подробнее
           </button>
         </div>
