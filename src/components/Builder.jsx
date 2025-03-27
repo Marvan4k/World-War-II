@@ -24,7 +24,7 @@ const ContentSection = () => {
   };
 
   return (
-    <div className="flex items-center justify-center w-full mx-auto p-6  max-w-[1280px]">
+    <div className="flex items-center justify-center w-full mx-auto p-6 min-h-[400px] max-w-[1280px]">
       <div className="flex flex-col flex-wrap gap-4 mb-6 min-w-[30%]">
         <button onClick={() => setActiveTab('constructor')} className={`text-left text-2xl px-4 py-2 rounded-lg transition-colors ${ activeTab === 'constructor' ? 'text-[#25A18E] hover:text-[#1d8273]': 'text-white hover:text-[#1d8273]'}`} >
           Конструктор блоков

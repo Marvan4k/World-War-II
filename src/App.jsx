@@ -16,7 +16,7 @@ export default function App() {
         <About />
       </div>
       <Stats />
-      <div className='flex justify-center items-center bg-[#00161D] min-h-[400px]"'>
+      <div className='flex justify-center items-center bg-[#00161D] "'>
         <Builder />
       </div>
       <div className='flex justify-center items-center bg-[#00161D] min-h-[400px]"'>
