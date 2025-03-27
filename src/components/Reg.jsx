@@ -29,7 +29,7 @@ const Reg = () => {
 
     return (
         <Form
-            title="Register"
+            title="Sing Up"
             handleClick={handleRegister}
         />
     )

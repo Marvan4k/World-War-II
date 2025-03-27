@@ -1,11 +1,13 @@
 import React from 'react';
-import Test from './components/Test.jsx';
+import Main from './Pages/Main';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <Routes>
-        <Route exact path="/" element={<Test />} />
+        <Route exact path="/" element={<Main />} />
     </Routes>
   );
 }
+
+export default App;
