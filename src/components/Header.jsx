@@ -1,13 +1,25 @@
 import Login from "./Login";
 import Register from "./Register";
 import React, {useState} from "react";
+import Close from "../img/Krestik.svg";
+import { useAuth } from "../hooks/use-auth";
+import { useDispatch } from "react-redux";
+import { removeUser } from "../store/slices/userSlice";
 
 export default function Header() {
+  const dispatch = useDispatch();
+
+
+
+  const { isAuth } = useAuth();
+
+
 
   const [ isLogin, setLogin ] = useState(true);
-  const [ isModal, setModal ] = useState(false);
+  const [ isModal, setModal ] = useState(true);
 
-  const handliClicked = () => {
+  const handleClicked = () => {
+    console.log("isModal");
     setLogin((prev) => !prev);
   }
 
@@ -15,10 +27,10 @@ export default function Header() {
       <>
         <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-100 "
           style={{display: isModal ? "none" : "block"}}>
-        >
           <div className="relative top-0 left-0 w-full h-full flex justify-center items-center bg-[#262626]"
-               onClick={() => setModal(false)}
+
           >
+            <img className="cursor-pointer absolute top-[35%] right-[36%]" src={Close} alt="Close" onClick={() => setModal(true)} />
             <Login
                 log={isLogin}
             />
@@ -28,7 +40,7 @@ export default function Header() {
             <div className="fixed bottom-0 left-0 w-full h-[38.5%] flex justify-center items-start z-100">
               <button
                   className=" block cursor-pointer text-white mt-4"
-                  onClick={handliClicked}
+                  onClick={handleClicked}
               >
                 {isLogin ? "Sing Up" : "Sing In"}
               </button>
@@ -43,9 +55,22 @@ export default function Header() {
               <a href="#" className="hover:text-[#25A18E] py-2 transition-colors text-2xl">Исторические факты</a>
               <a href="#" className="hover:text-[#25A18E] py-2 transition-colors text-2xl">Интерактивные карты</a>
             </div>
-            <button className="bg-[#25A18E] text-white px-6 py-2 rounded-sm hover:bg-[#1d8273] font-medium transition-colors cursor-pointer text-2xl">
-              Авторизоваться
-            </button>
+            {isAuth ?
+                (
+                    <button className="bg-[#25A18E] text-white px-6 py-2 rounded-sm hover:bg-[#1d8273] font-medium transition-colors cursor-pointer text-2xl"
+                      onClick={() => dispatch(removeUser())}>
+
+                      Выйти
+                    </button>
+                )
+                :
+                (
+                    <button className="bg-[#25A18E] text-white px-6 py-2 rounded-sm hover:bg-[#1d8273] font-medium transition-colors cursor-pointer text-2xl"
+                            onClick={() => setModal(false)}>
+                      Авторизоваться
+                    </button>
+                )
+            }
           </nav>
         </header>
       </>
