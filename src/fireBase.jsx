@@ -1,4 +1,10 @@
 import { initializeApp } from "firebase/app";
+import {
+    getAuth,
+    setPersistence,
+    browserLocalPersistence,
+    onAuthStateChanged
+} from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -10,3 +16,22 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const initAuthPersistence = async () => {
+    try {
+        await setPersistence(auth, browserLocalPersistence);
+    } catch (error) {
+        console.error("Ошибка настройки сохранения сессии:", error);
+    }
+};
+
+// Инициализируем сразу
+initAuthPersistence();
+
+// Функция для проверки состояния аутентификации
+const checkAuthState = (callback) => {
+    return onAuthStateChanged(auth, callback);
+};
+
+export { auth, checkAuthState };

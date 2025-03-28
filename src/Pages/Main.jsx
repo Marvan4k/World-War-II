@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Register from '../components/Register';
-import Login from '../components/Login';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import About from '../components/About';
 import Stats from '../components/Stats';
 import Builder from '../components/Builder';
 import FaqSection from '../components/FaqSection';
+import ArticleList from '../components/ArticleList';
+
 
 const Main = () => {
 
@@ -29,6 +29,9 @@ const Main = () => {
             </div>
             <div className='flex justify-center items-center bg-[#00161D] min-h-[400px]"'>
                 <FaqSection />
+            </div>
+            <div className='flex justify-center items-center bg-[#00161D] min-h-[400px]"'>
+                <ArticleList />
             </div>
         </div>
     )

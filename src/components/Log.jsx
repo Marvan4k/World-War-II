@@ -1,6 +1,6 @@
 import { Form } from "./Form";
 import { useNavigate } from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import { setUser } from "../store/slices/userSlice";
 
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
@@ -20,9 +20,12 @@ const Log = () => {
                         token: user.accessToken,
                     })
                 );
+
                 push('/');
             })
-            .catch((err) => {console.log(err)});
+            .catch((err) => {
+                console.log("err");
+            });
     }
 
     return (
