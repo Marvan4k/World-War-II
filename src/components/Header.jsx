@@ -1,6 +1,6 @@
 import Login from "./Login";
 import Register from "./Register";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Close from "../img/Krestik.svg";
 import { useAuth } from "../hooks/use-auth";
 import { useDispatch } from "react-redux";
@@ -13,7 +13,11 @@ export default function Header() {
 
   const { isAuth } = useAuth();
 
-
+  useEffect(() => {
+    if (isAuth) {
+      setModal(true);
+    }
+  }, [isAuth]);
 
   const [ isLogin, setLogin ] = useState(true);
   const [ isModal, setModal ] = useState(true);
