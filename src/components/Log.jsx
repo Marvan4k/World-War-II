@@ -21,7 +21,6 @@ const Log = () => {
                     })
                 );
 
-
                 push('/');
             })
             .catch((err) => {
