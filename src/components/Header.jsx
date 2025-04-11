@@ -20,12 +20,12 @@ export default function Header() {
 
   return (
       <>
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-100 "
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-10000 "
           style={{display: isModal ? "none" : "block"}}>
           <div className="relative top-0 left-0 w-full h-full flex justify-center flex-col items-center bg-[#262626]"
 
           >
-            <img className="cursor-pointer absolute top-[35%] right-[36%]" src={Close} alt="Close" onClick={() => setModal(true)} />
+            <img className="cursor-pointer absolute top-2 right-2" src={Close} alt="Close" onClick={() => setModal(true)} />
             <Login
                 log={isLogin}
             />
@@ -40,7 +40,7 @@ export default function Header() {
             </button>
           </div>
         </div>
-        <header className="bg-[#00161D] text-white fixed w-full">
+        <header className="bg-[#00161D] text-white fixed w-full z-100 border-b-[#25A18E] border-b-[2px]">
           <nav className="max-w-[1280px] mx-auto px-4 py-4 flex items-center justify-between">
             <a href="#" className="hover:text-[#25A18E] py-2 transition-colors font-medium text-2xl max-[900px]:hidden">История</a>
             <div className="hidden max-[900px]:block">
@@ -53,14 +53,12 @@ export default function Header() {
               {isMenuOpen && (
                 <div className="absolute top-16 right-4 bg-[#00161D] text-white flex flex-col space-y-4 p-4 rounded shadow-lg">
                   <a href="#" className="hover:text-[#25A18E] py-2 transition-colors text-xl">История</a>
-                  <a href="#" className="hover:text-[#25A18E] py-2 transition-colors text-xl">Исторические факты</a>
-                  <a href="#" className="hover:text-[#25A18E] py-2 transition-colors text-xl">Интерактивные карты</a>
+                  <a href="#HistoricalFacts" className="hover:text-[#25A18E] py-2 transition-colors text-xl">Исторические факты</a>
                 </div>
               )}
             </div>
             <div className="flex space-x-8 font-medium max-[900px]:hidden">
-              <a href="#" className="hover:text-[#25A18E] py-2 transition-colors text-2xl">Исторические факты</a>
-              <a href="#" className="hover:text-[#25A18E] py-2 transition-colors text-2xl">Интерактивные карты</a>
+              <a href="#HistoricalFacts" className="hover:text-[#25A18E] py-2 transition-colors text-2xl">Исторические факты</a>
             </div>
             {isAuth ?
                 (

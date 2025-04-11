@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import useContent from '../hooks/useContent';
-
 const ConstrPage = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -16,6 +15,11 @@ const ConstrPage = () => {
     } = useContent();
 
     const fileInputRef = useRef(null);
+
+    const handleReturn = () => {
+        navigate('/')
+    }
+
 
     // Загрузка данных для редактирования
     useEffect(() => {
@@ -37,7 +41,7 @@ const ConstrPage = () => {
     };
 
     return (
-        <div className="w-full h-full min-h-screen bg-[#394A8E]">
+        <div className="w-full h-full min-h-screen bg-[#262626]">
             <div className="max-w-4xl mx-auto p-6 ">
                 <h1 className="text-2xl font-bold mb-6 text-white">
                     {location.state?.article ? 'Редактировать блок' : 'Создать новый блок'}
@@ -103,6 +107,12 @@ const ConstrPage = () => {
                     className="w-full py-3 bg-[#25A18E] text-white rounded-lg"
                 >
                     Опубликовать
+                </button>
+                <button
+                    onClick={handleReturn}
+                    className="text-white cursor-pointer w-full mt-4"
+                >
+                    Назад
                 </button>
             </div>
         </div>

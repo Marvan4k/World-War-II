@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchArticles, removeArticle } from '../store/slices/articlesSlice'; // Добавьте deleteArticle в импорт
+import { fetchArticles, removeArticle } from '../store/slices/articlesSlice';
 import { useAuth } from "../hooks/use-auth";
 import { doc, deleteDoc } from "firebase/firestore";
-import { db } from '../fireBase'; // Импортируйте вашу конфигурацию Firebase
+import { db } from '../fireBase';
 
 const ArticleList = () => {
     const dispatch = useDispatch();
@@ -11,16 +11,15 @@ const ArticleList = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState({});
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
+    const [searchQuery, setSearchQuery] = useState(''); // Состояние для поискового запроса
     const imageRefs = useRef({});
 
-    const { email } = useAuth(); // Предполагаем, что useAuth возвращает isAdmin
+    const { email, id } = useAuth();
 
-    // Автоматическая загрузка при монтировании
     useEffect(() => {
         dispatch(fetchArticles());
     }, [dispatch]);
 
-    // Инициализация индексов изображений
     useEffect(() => {
         const initialIndexes = {};
         articles.forEach(article => {
@@ -30,6 +29,11 @@ const ArticleList = () => {
         });
         setCurrentImageIndex(initialIndexes);
     }, [articles]);
+
+    // Функция для фильтрации статей по поисковому запросу
+    const filteredArticles = articles.filter(article =>
+        article.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     const handleNextImage = (articleId, imagesLength) => {
         setCurrentImageIndex(prev => ({
@@ -45,17 +49,14 @@ const ArticleList = () => {
         }));
     };
 
-    // Обработка начала касания
     const handleTouchStart = (e, articleId) => {
         setTouchStart(e.targetTouches[0].clientX);
     };
 
-    // Обработка движения пальца
     const handleTouchMove = (e, articleId) => {
         setTouchEnd(e.targetTouches[0].clientX);
     };
 
-    // Обработка окончания касания
     const handleTouchEnd = (articleId, imagesLength) => {
         if (!touchStart || !touchEnd) return;
 
@@ -73,17 +74,12 @@ const ArticleList = () => {
         setTouchEnd(null);
     };
 
-    // Функция удаления статьи
     const handleDeleteArticle = async (articleId) => {
         if (email !== 'admin@gmail.com') return;
 
         try {
-            // Удаление из Firestore
             await deleteDoc(doc(db, "articles", articleId));
-
-            // Обновление состояния Redux
             dispatch(removeArticle(articleId));
-
             console.log("Статья успешно удалена");
         } catch (error) {
             console.error("Ошибка при удалении статьи: ", error);
@@ -100,16 +96,28 @@ const ArticleList = () => {
 
     return (
         <div className="max-w-7xl w-3xl mx-auto px-4 py-8">
-            <h2 className="text-3xl font-bold text-[#00161D] mb-8">Исторические материалы</h2>
+            <h2 className="text-3xl font-bold text-white mb-8">Исторические материалы</h2>
 
-            {articles.length === 0 ? (
-                <p className="text-center py-12 text-gray-500">Нет доступных статей</p>
+            {/* Поле поиска */}
+            <div className="mb-8">
+                <input
+                    type="text"
+                    placeholder="Поиск по заголовкам..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 text-white focus:ring-white"
+                />
+            </div>
+
+            {filteredArticles.length === 0 ? (
+                <p className="text-center py-12 text-gray-500">
+                    {searchQuery ? 'Ничего не найдено' : 'Нет доступных статей'}
+                </p>
             ) : (
                 <div className="grid grid-cols-1 gap-8 w-full">
-                    {articles.map((article) => (
+                    {filteredArticles.map((article) => (
                         <div key={article.id} className="bg-white rounded-lg shadow-md overflow-hidden relative">
-                            {/* Кнопка удаления (только для админов) */}
-                            {email === 'admin@gmail.com' && (
+                            {(email === 'admin@gmail.com') && (
                                 <button
                                     onClick={() => handleDeleteArticle(article.id)}
                                     className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-2 z-10 hover:bg-red-600 transition-colors"
@@ -125,7 +133,7 @@ const ArticleList = () => {
                             {article.images?.length > 0 && (
                                 <div className="h-90 overflow-hidden relative">
                                     <div
-                                        className="relative h-full w-full"
+                                        className="relative h-full w-full flex justify-center items-center"
                                         ref={el => imageRefs.current[article.id] = el}
                                         onTouchStart={(e) => handleTouchStart(e, article.id)}
                                         onTouchMove={(e) => handleTouchMove(e, article.id)}
@@ -178,14 +186,11 @@ const ArticleList = () => {
                                     {article.title}
                                 </h3>
                                 <p className="text-gray-700 mb-4">{article.text}</p>
+                                {email === 'admin@gmail.com' &&
+                                    <p>{article.userEmail}</p>
+                                }
                             </div>
-                            {email === 'admin@gmail.com' ?
-                                (
-                                    <p>{article.authorId}</p>
-                                )
-                                :
-                                null
-                            }
+
                         </div>
                     ))}
                 </div>

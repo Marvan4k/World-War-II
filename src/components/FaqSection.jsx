@@ -28,7 +28,7 @@ const FaqSection = () => {
             <button onClick={() => setActiveIndex(activeIndex === index ? null : index)} className="w-full rounded-lg px-4 py-3 text-left flex justify-between items-center hover:bg-[#1d8273]">
               <span className="font-medium text-white">{item.question}</span>
               <span className={`transform transition-transform ${activeIndex === index ? 'rotate-45' : ''}`}>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
               </span>

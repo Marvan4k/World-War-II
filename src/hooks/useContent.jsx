@@ -22,6 +22,7 @@ const useContent = (initialState = {}) => {
         title: '',
         text: '',
         images: [],
+        userEmail: '',
         ...initialState,
     };
 
@@ -106,6 +107,7 @@ const useContent = (initialState = {}) => {
                 images: content.images,
                 createdAt: serverTimestamp(),
                 authorId: auth.currentUser.uid,
+                userEmail: auth.currentUser.email,
             };
 
             const docRef = await addDoc(collection(db, 'articles'), newArticle);

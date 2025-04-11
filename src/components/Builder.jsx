@@ -45,6 +45,10 @@ const ContentSection = () => {
         },
     };
 
+    const Click = () => {
+        navigate('/work');
+    }
+
     return (
         <>
             <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-10000 "
@@ -109,9 +113,6 @@ const ContentSection = () => {
                                 <p className="text-white mb-4">
 
                                 </p>
-                                <button className="px-6 py-2 bg-[#25A18E] text-white rounded-lg hover:bg-[#1d8273] transition-colors">
-                                    Подробнее
-                                </button>
                             </>
                         </div>
                     </div>
@@ -123,7 +124,9 @@ const ContentSection = () => {
                         <p className="text-white leading-relaxed">
                             {content[activeTab].text}
                         </p>
-                        <button className="mt-4 px-6 py-2 bg-[#25A18E] text-white rounded-lg hover:bg-[#1d8273] transition-colors">
+                        <button className="mt-4 px-6 py-2 bg-[#25A18E] text-white rounded-lg hover:bg-[#1d8273] transition-colors"
+                            onClick={Click}
+                        >
                             Подробнее
                         </button>
                     </div>

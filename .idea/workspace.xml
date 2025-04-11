@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb4d0413-5e16-4774-8e17-699d10e51337" name="Changes" comment="">
-<<<<<<< Updated upstream
-      <change afterPath="$PROJECT_DIR$/jsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.jsx" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FaqSection.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FaqSection.jsx" afterDir="false" />
->>>>>>> Stashed changes
-    </list>
+    <list default="true" id="bb4d0413-5e16-4774-8e17-699d10e51337" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,11 +14,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="tsconfig.json" />
-<<<<<<< Updated upstream
-=======
-        <option value="JSX File" />
         <option value="JavaScript File" />
->>>>>>> Stashed changes
+        <option value="JSX File" />
       </list>
     </option>
   </component>
@@ -48,24 +34,28 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-<<<<<<< Updated upstream
-    "git-widget-placeholder": "Backend",
-    "last_opened_file_path": "D:/GitHub/World-War-II",
-=======
-    "git-widget-placeholder": "Frontend",
-    "last_opened_file_path": "D:/GitHub/WWII",
->>>>>>> Stashed changes
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/GitHub/WWII/src/img",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.tailwindcss",
     "ts.external.directory.path": "D:\\JetBrains\\WebStorm 2024.3.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "PLAIN_TEXT"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHub\WWII\src\img" />
+      <recent name="D:\GitHub\WWII\public\data\icons" />
       <recent name="D:\GitHub\WWII" />
       <recent name="D:\GitHub\World-War-II\public\data" />
     </key>
@@ -92,8 +82,6 @@
       <workItem from="1742972495244" duration="1422000" />
       <workItem from="1742974658347" duration="648000" />
       <workItem from="1742996831669" duration="829000" />
-<<<<<<< Updated upstream
-=======
       <workItem from="1742997939698" duration="8000" />
       <workItem from="1743014120996" duration="6971000" />
       <workItem from="1743078969162" duration="5070000" />
@@ -104,7 +92,9 @@
       <workItem from="1743240479029" duration="2813000" />
       <workItem from="1743275569722" duration="5470000" />
       <workItem from="1743314472868" duration="4075000" />
->>>>>>> Stashed changes
+      <workItem from="1743323089314" duration="129000" />
+      <workItem from="1743334326723" duration="3140000" />
+      <workItem from="1743357320221" duration="1934000" />
     </task>
     <servers />
   </component>
